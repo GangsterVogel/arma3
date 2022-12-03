@@ -27,8 +27,8 @@ jobs:
       - uses: docker/build-push-action@v3
         with:
           registry: ghcr.io
-          context: ./games/${{ matrix.game }}
-          file: ./games/${{ matrix.game }}/Dockerfile
+          context: /games/${{ matrix.game }}
+          file: /games/${{ matrix.game }}/Dockerfile
           platforms: linux/amd64/arm64
           push: true
           tags: |
