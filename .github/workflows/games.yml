@@ -10,7 +10,7 @@ on:
       - games/**
 jobs:
   push:
-    name: "games:${{ matrix.game }}"
+    name: "games:arma3
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,14 +22,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
         with:
-          version: "v0.8.2"
+          version: "v2.0.0"
           buildkitd-flags: --debug
       - uses: docker/build-push-action@v3
         with:
           registry: ghcr.io
-          context: /games/${{ matrix.game }}
-          file: /games/${{ matrix.game }}/Dockerfile
+          context: ./games/arma3/
+          file: ./games/arma3/Dockerfile
           platforms: linux/amd64/arm64
           push: true
           tags: |
-            ghcr.io/gangstervogel/games:${{ matrix.game }}
+            ghcr.io/gangstervogel/games:arma3
