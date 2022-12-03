@@ -10,7 +10,7 @@ on:
       - games/**
 jobs:
   push:
-    name: "games:arma3
+    name: "games:${{ matrix.game }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v2
         with:
-          version: "v2.0.0"
+          version: "v0.8.2"
           buildkitd-flags: --debug
       - uses: docker/build-push-action@v3
         with:
@@ -32,4 +32,4 @@ jobs:
           platforms: linux/amd64/arm64
           push: true
           tags: |
-            ghcr.io/gangstervogel/games:arma3
+            ghcr.io/gangstervogel/games:${{ matrix.game }}
