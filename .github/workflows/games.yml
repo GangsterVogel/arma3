@@ -32,4 +32,4 @@ jobs:
           platforms: linux/amd64/arm64
           push: true
           tags: |
-            ghcr.io/GangsterVogel/games:${{ matrix.game }}
+            ghcr.io/gangstervogel/games:${{ matrix.game }}
